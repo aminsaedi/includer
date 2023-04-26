@@ -20,8 +20,6 @@ exec(
       allowedExtensions.split(",").some((ext) => file.endsWith(ext))
     );
 
-    console.log(filteredFiles, files);
-
     // Read the contents of the "tsconfig.strict.json" file
     const configFile = "tsconfig.strict.json";
     fs.readFile(configFile, "utf8", (err, data) => {
@@ -32,8 +30,6 @@ exec(
 
       // Parse the JSON data and update the "includes" key with the filtered staged files
       const config = JSON.parse(data);
-
-      console.log(config.include);
 
       config.include = [...new Set([...config.include, ...filteredFiles])]; // Use a Set to remove duplicates and spread the arrays
       const updatedConfig = JSON.stringify(config, null, 2);

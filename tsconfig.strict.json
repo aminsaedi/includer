@@ -5,7 +5,6 @@
     "noImplicitAny": true,
     "noEmit": true
   },
-  "include": [
-    "src/**/*"
-  ]
+  "include": ["test.tsx"]
 }
+
